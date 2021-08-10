@@ -126,16 +126,6 @@ static void SetSafetyNetProps() {
     property_override("vendor.boot.vbmeta.device_state", "locked");
 }
 
-static void build_keys_override(const char *build_keys)
-{
-    property_override("ro.build.tags", build_keys);
-    property_override("ro.odm.build.tags", build_keys);
-    property_override("ro.product.build.tags", build_keys);
-    property_override("ro.system.build.tags", build_keys);
-    property_override("ro.system_ext.build.tags", build_keys);
-    property_override("ro.vendor.build.tags", build_keys);
-}
-
 static void set_model_name(const char *model_name)
 {
     property_override("ro.product.model", model_name);
@@ -159,8 +149,6 @@ void vendor_load_properties()
     // these properties are read-only and will be set to invalid values with
     // androidboot cmdline arguments.
     SetSafetyNetProps();
-
-    build_keys_override("release-keys");
 
     property_override("dalvik.vm.heapstartsize", heapstartsize);
     property_override("dalvik.vm.heapgrowthlimit", heapgrowthlimit);
