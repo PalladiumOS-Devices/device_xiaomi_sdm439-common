@@ -126,16 +126,6 @@ static void SetSafetyNetProps() {
     property_override("vendor.boot.vbmeta.device_state", "locked");
 }
 
-static void set_model_name(const char *model_name)
-{
-    property_override("ro.product.model", model_name);
-    property_override("ro.product.odm.model", model_name);
-    property_override("ro.product.product.model", model_name);
-    property_override("ro.product.system.model", model_name);
-    property_override("ro.product.system_ext.model", model_name);
-    property_override("ro.product.vendor.model", model_name);
-}
-
 void vendor_load_properties()
 {
     check_device();
